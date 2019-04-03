@@ -1,5 +1,8 @@
 function toWords(num) {
 
+    if (isNaN(num)) {
+        return 'Моля, въведете валидна сума!'
+    }
     var hundreds = '';
     var thousands = 'хиляди';
     var million = 'милион';
@@ -8,6 +11,10 @@ function toWords(num) {
     var resultStr = '';
     var start = 0;
 
+    if (num < 0) {
+        resultStr += 'минус ';
+        num *= (-1);
+    }
     var numStr = (num).toFixed(2);
     if (numStr.length > 15) {
         return 'Сумата е по-голяма от 999 милиарда!';
